@@ -1,0 +1,340 @@
+.timetable-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.timetable-term-title {
+  margin: 1.5rem 0 1rem 0;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.timetable-term-title h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.classroom-filter {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: white;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.classroom-filter:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.timetable-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.timetable-wrapper {
+  display: flex;
+  min-width: 1200px;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.time-column {
+  width: 80px;
+  flex-shrink: 0;
+  background: #f8f9fa;
+  border-right: 2px solid #e1e8ed;
+}
+
+.day-column {
+  flex: 1;
+  min-width: 0;
+  border-right: 1px solid #e1e8ed;
+}
+
+.day-column:last-child {
+  border-right: none;
+}
+
+.day-header-cell {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid #e1e8ed;
+  color: #2c3e50;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-label {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6c757d;
+  border-bottom: 1px solid #e1e8ed;
+  font-weight: 500;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-content {
+  position: relative;
+  background: white;
+}
+
+.time-grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  border-bottom: 1px solid #e9ecef;
+  pointer-events: none;
+}
+
+.time-grid-line:hover {
+  background-color: rgba(248, 249, 250, 0.5);
+}
+
+/* Class block - absolutely positioned, spans multiple hours */
+.class-block {
+  position: absolute;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.class-block:hover {
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
+  filter: brightness(1.05) !important;
+}
+
+/* Content for normal-sized class blocks */
+.class-block-content {
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.class-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.class-room,
+.class-time,
+.class-students {
+  font-size: 0.8rem;
+  opacity: 0.95;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Content for small class blocks (when width < 50%) */
+.class-block-content-minimal {
+  color: white;
+  font-size: 0.7rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.25rem;
+}
+
+.class-name-small {
+  font-weight: 600;
+  font-size: 0.75rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 100%;
+}
+
+/* Tooltip that appears on hover */
+.class-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  background: rgba(44, 62, 80, 0.96);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  min-width: 220px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease, visibility 0.1s ease;
+}
+
+/* Arrow for tooltip */
+.class-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: rgba(44, 62, 80, 0.96);
+}
+
+.class-block:hover .class-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-row {
+  padding: 0.25rem 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.tooltip-row:first-child {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.25rem;
+}
+
+.tooltip-row strong {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Legend */
+.timetable-legend {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.timetable-legend h3 {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .timetable-wrapper {
+    min-width: 1000px;
+  }
+
+  .class-block-content {
+    font-size: 0.75rem;
+  }
+
+  .class-name {
+    font-size: 0.8rem;
+  }
+
+  .class-room,
+  .class-time,
+  .class-students {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .timetable-wrapper {
+    min-width: 900px;
+  }
+
+  .time-label,
+  .day-header-cell {
+    height: 50px;
+    font-size: 0.8rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .time-grid-line {
+    height: 50px;
+  }
+}
+
+@media (max-width: 968px) {
+  .timetable-container {
+    padding: 0.75rem;
+  }
+
+  .timetable-wrapper {
+    min-width: 800px;
+  }
+
+  .time-label,
+  .day-header-cell {
+    height: 45px;
+    font-size: 0.75rem;
+  }
+
+  .time-grid-line {
+    height: 45px;
+  }
+
+  .class-tooltip {
+    min-width: 180px;
+    font-size: 0.8rem;
+  }
+}

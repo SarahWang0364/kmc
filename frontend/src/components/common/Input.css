@@ -1,0 +1,42 @@
+.input-group {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.required {
+  color: var(--color-danger);
+  margin-left: 4px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input-field.input-error {
+  border-color: var(--color-danger);
+}
+
+.error-message {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-danger);
+  font-size: 12px;
+}

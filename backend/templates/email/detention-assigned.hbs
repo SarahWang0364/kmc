@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Detention Assigned</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      background-color: #c0392b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 30px 20px;
+      background-color: #f9f9f9;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #e67e22;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .detention-details {
+      background-color: #fff;
+      padding: 15px;
+      border-left: 4px solid #c0392b;
+      margin: 20px 0;
+    }
+    .important {
+      background-color: #ffebee;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Detention Assigned</h1>
+    </div>
+    <div class="content">
+      <p>Dear {{studentName}},</p>
+
+      <p>A detention has been assigned to you. Please review the details below:</p>
+
+      <div class="detention-details">
+        <strong>Class:</strong> {{className}}<br>
+        <strong>Week:</strong> Week {{week}}<br>
+        <strong>Reason:</strong> {{reason}}
+      </div>
+
+      <div class="important">
+        <strong>Action Required:</strong> You must book a detention time slot as soon as possible. Please log in to your student portal to book a convenient time.
+      </div>
+
+      <p>To book your detention time:</p>
+      <ol>
+        <li>Log in to your student account</li>
+        <li>Go to the Detentions page</li>
+        <li>Select an available time slot</li>
+        <li>Confirm your booking</li>
+      </ol>
+
+      <a href="{{bookingUrl}}" class="button">Book Detention Now</a>
+
+      <p>If the button doesn't work, copy and paste this link into your browser:<br>
+      {{bookingUrl}}</p>
+
+      <p><strong>Note:</strong> Failure to book and attend your detention may result in additional consequences. Please ensure you complete this detention as soon as possible.</p>
+
+      <p>If you have any questions or concerns, please speak with your teacher or contact the KMC office.</p>
+
+      <p>Best regards,<br>
+      Kurt's Mathematics Centre Team</p>
+    </div>
+    <div class="footer">
+      <p>&copy; {{year}} Kurt's Mathematics Centre. All rights reserved.</p>
+      <p>This is an automated email, please do not reply.</p>
+    </div>
+  </div>
+</body>
+</html>

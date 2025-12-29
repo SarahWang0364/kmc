@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm create:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(npm run seed:*)",
+      "Bash(curl:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout /t 3)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(node -c:*)",
+      "Bash(node -e:*)",
+      "Bash(node seedDatabase.js:*)",
+      "Bash(cat classRoutes.js)",
+      "Bash(node test-term-creation.js:*)",
+      "Bash(node verify-26T1.js:*)",
+      "Bash(node test-detention-bugs.js:*)",
+      "Bash(node verify-system.js:*)"
+    ]
+  }
+}

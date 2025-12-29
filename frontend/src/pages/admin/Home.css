@@ -1,0 +1,211 @@
+.admin-home h1 {
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.alert-error {
+  background: #fee;
+  color: #c33;
+  border: 1px solid #fcc;
+}
+
+.followups-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.followups-section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.followups-list {
+  display: grid;
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.followup-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #3498db;
+  transition: all 0.2s;
+}
+
+.followup-card.overdue {
+  border-left-color: #e74c3c;
+  background: #fee;
+}
+
+.followup-card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.followup-content {
+  flex: 1;
+}
+
+.followup-issue {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.due-date {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.btn-done {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-done:hover {
+  background: #229954;
+}
+
+.bottom-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.attendance-section,
+.detentions-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-section h2,
+.detentions-section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Class Selector Dropdown */
+.class-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.class-selector label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.875rem;
+}
+
+.class-dropdown {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: white;
+  cursor: pointer;
+  min-width: 250px;
+  transition: all 0.2s;
+}
+
+.class-dropdown:hover {
+  border-color: #3498db;
+}
+
+.class-dropdown:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.attendance-content {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.class-attendance {
+  margin-bottom: 1.5rem;
+}
+
+.class-attendance:last-child {
+  margin-bottom: 0;
+}
+
+.class-attendance h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.class-attendance table,
+.detentions-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.class-attendance table th,
+.class-attendance table td,
+.detentions-section table th,
+.detentions-section table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.class-attendance table th,
+.detentions-section table th {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.class-attendance input[type="checkbox"],
+.detentions-section select {
+  cursor: pointer;
+}
+
+.detentions-section select {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+@media (max-width: 968px) {
+  .bottom-section {
+    grid-template-columns: 1fr;
+  }
+}

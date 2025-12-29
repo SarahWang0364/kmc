@@ -1,0 +1,161 @@
+.data-table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background: #f8f9fa;
+}
+
+.data-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #e9ecef;
+  white-space: nowrap;
+}
+
+.data-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.data-table th.sortable:hover {
+  background: #e9ecef;
+}
+
+.sort-indicator {
+  color: #3498db;
+  font-size: 0.75rem;
+}
+
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #495057;
+}
+
+.data-table tbody tr {
+  transition: background 0.2s;
+}
+
+.data-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.data-table tbody tr.clickable {
+  cursor: pointer;
+}
+
+.data-table tbody tr.clickable:hover {
+  background: #e3f2fd;
+}
+
+.actions {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.actions-header {
+  text-align: center;
+  width: 100px;
+}
+
+/* Base button styles */
+.btn-action,
+.btn-status {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 90px;
+}
+
+/* Status toggle buttons */
+.btn-status {
+  font-weight: 600;
+}
+
+.btn-activate {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-activate:hover {
+  background: #229954;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(39, 174, 96, 0.3);
+}
+
+.btn-deactivate {
+  background: #f39c12;
+  color: white;
+}
+
+.btn-deactivate:hover {
+  background: #e67e22;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(243, 156, 18, 0.3);
+}
+
+/* Action buttons */
+.btn-edit {
+  background: #3498db;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.btn-delete:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-action:active:not(:disabled),
+.btn-status:active {
+  transform: translateY(0);
+}
+
+.table-loading,
+.table-empty {
+  padding: 3rem;
+  text-align: center;
+  color: #6c757d;
+  background: white;
+  border-radius: 8px;
+}
+
+.table-loading::before {
+  content: '⏳ ';
+}
+
+.table-empty::before {
+  content: '📭 ';
+}
