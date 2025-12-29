@@ -148,30 +148,35 @@ const DetentionSlots = () => {
     if (!dragStart || !dragEnd) return new Set();
 
     const slots = new Set();
+    const slotTimes = getSlotTimes();
 
-    // Get rectangular bounds in 2D (week × day)
-    const minWeek = Math.min(dragStart.week, dragEnd.week);
-    const maxWeek = Math.max(dragStart.week, dragEnd.week);
+    // Treat the grid as 2D where each (week, slot) combination is a separate row
+    // Row index = week * numSlots + slotNumber
+    // Column index = dayIdx
+
+    const numSlots = slotTimes.length;
+
+    const startRowIdx = (dragStart.week - 1) * numSlots + dragStart.slotNumber;
+    const endRowIdx = (dragEnd.week - 1) * numSlots + dragEnd.slotNumber;
+    const minRowIdx = Math.min(startRowIdx, endRowIdx);
+    const maxRowIdx = Math.max(startRowIdx, endRowIdx);
 
     const startDayIdx = getDayOfWeekIndex(dragStart.dayOfWeek);
     const endDayIdx = getDayOfWeekIndex(dragEnd.dayOfWeek);
     const minDayIdx = Math.min(startDayIdx, endDayIdx);
     const maxDayIdx = Math.max(startDayIdx, endDayIdx);
 
-    // Get slot range (min/max of the two corners)
-    const minSlot = Math.min(dragStart.slotNumber, dragEnd.slotNumber);
-    const maxSlot = Math.max(dragStart.slotNumber, dragEnd.slotNumber);
+    // Select all cells in the 2D rectangle
+    for (let rowIdx = minRowIdx; rowIdx <= maxRowIdx; rowIdx++) {
+      // Convert row index back to (week, slotNumber)
+      const week = Math.floor(rowIdx / numSlots) + 1;
+      const slotNumber = rowIdx % numSlots;
 
-    // Select all cells in the 2D rectangle, with the slot range for each cell
-    for (let week = minWeek; week <= maxWeek; week++) {
       for (let dayIdx = minDayIdx; dayIdx <= maxDayIdx; dayIdx++) {
         const dayName = weekdays[dayIdx];
         const dayOfWeek = dayOfWeekMap[dayName];
 
-        // For each cell, include slots from minSlot to maxSlot
-        for (let slotNumber = minSlot; slotNumber <= maxSlot; slotNumber++) {
-          slots.add(getSlotKey(week, dayOfWeek, slotNumber));
-        }
+        slots.add(getSlotKey(week, dayOfWeek, slotNumber));
       }
     }
 
